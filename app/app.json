@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "MobilePayment",
+    "slug": "MobilePayment",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "MobilePayment"
+}
