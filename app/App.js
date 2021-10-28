@@ -9,7 +9,7 @@ export default function App() {
   return (
     <PaperProvider>
       <View style={styles.container}>
-        <StatusBar style="auto" />
+        <StatusBar style='auto' />
         <HomeScreen />
       </View>
     </PaperProvider>
@@ -20,5 +20,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff'
-  },
+  }
 });

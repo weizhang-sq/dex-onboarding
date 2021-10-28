@@ -3,7 +3,7 @@ import React, { useCallback, useEffect } from 'react';
 import { SQIPCardEntry, SQIPCore } from 'react-native-square-in-app-payments';
 import { ScrollView, View } from 'react-native';
 
-const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
+const LeftContent = (props) => <Avatar.Icon {...props} icon='folder' />;
 
 export function HomeScreen() {
   useEffect(() => {
@@ -11,7 +11,7 @@ export function HomeScreen() {
   }, []);
 
   const onCardEntryComplete = useCallback(() => {
-    console.log('onCardEntryComplete')
+    console.log('onCardEntryComplete');
   });
 
   const onCardNonceRequestSuccess = useCallback(async (cardDetails) => {
@@ -35,29 +35,28 @@ export function HomeScreen() {
 
   const onStartCardEntry = useCallback(() => {
     const cardEntryConfig = {
-      collectPostalCode: false,
+      collectPostalCode: false
     };
 
-    SQIPCardEntry.startCardEntryFlow(
-      cardEntryConfig,
-      onCardNonceRequestSuccess,
-      onCardEntryCancel,
-    );
+    SQIPCardEntry.startCardEntryFlow(cardEntryConfig, onCardNonceRequestSuccess, onCardEntryCancel);
   }, [onCardNonceRequestSuccess, onCardEntryCancel]);
 
   const items = [];
   for (let i = 0; i < 30; i++) {
+    const title = `Item #${i + 1}`;
+    const description = 'Description';
+    const donate = 'Donate';
     items.push(
       <View style={{ width: 180, margin: 10 }}>
         <Card id={i}>
-          <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} />
+          <Card.Title title='Card Title' subtitle='Card Subtitle' left={LeftContent} />
           <Card.Content>
-            <Title>Non-profit org #{i + 1}</Title>
-            <Paragraph>Card content</Paragraph>
+            <Title>{title}</Title>
+            <Paragraph>{description}</Paragraph>
           </Card.Content>
           <Card.Cover id={i} source={{ uri: `https://picsum.photos/${128 + i}` }} />
           <Card.Actions>
-            <Button onPress={onStartCardEntry}>Donate</Button>
+            <Button onPress={onStartCardEntry}>{donate}</Button>
           </Card.Actions>
         </Card>
       </View>
@@ -66,15 +65,11 @@ export function HomeScreen() {
   return (
     <View>
       <Appbar.Header>
-        <Appbar.Content title="Onboarding project demo" subtitle="Payment" />
-        <Appbar.Action icon="dots-vertical" onPress={() => { }} />
+        <Appbar.Content title='Onboarding project demo' subtitle='Payment' />
+        <Appbar.Action icon='dots-vertical' onPress={() => {}} />
       </Appbar.Header>
-      <ScrollView
-        contentContainerStyle={{ alignItems: 'center' }}
-        scrollIndicatorInsets={{ right: 1 }}>
-        <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginBottom: 170 }}>
-          {items}
-        </View>
+      <ScrollView contentContainerStyle={{ alignItems: 'center' }} scrollIndicatorInsets={{ right: 1 }}>
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginBottom: 170 }}>{items}</View>
       </ScrollView>
     </View>
   );
