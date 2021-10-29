@@ -1,4 +1,4 @@
-rootProject.name = 'MobilePayment'
+rootProject.name = 'Donation'
 include ':react-native-square-in-app-payments'
 project(':react-native-square-in-app-payments').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-square-in-app-payments/android')
 

@@ -46,5 +46,7 @@
     "jest-expo": "^42.0.0",
     "prettier": "^2.0.5"
   },
-  "private": true
+  "private": true,
+  "name": "app",
+  "version": "1.0.0"
 }

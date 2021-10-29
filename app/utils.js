@@ -34,11 +34,7 @@ const getHttpRequest = async (endpoint, method = 'GET', body = undefined) => {
   } catch (error) {
     console.log(error);
     Alert.alert(error);
-    return {
-      headers: {},
-      status: -1,
-      body: {}
-    };
+    return null;
   } finally {
     EasyLoading.dismiss();
   }
