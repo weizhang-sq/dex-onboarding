@@ -1,8 +1,9 @@
-import { Alert } from 'react-native';
+import { Alert, Platform } from 'react-native';
+
 import Constants from 'expo-constants';
 import { EasyLoading } from './EasyLoading';
 
-const baseUrl = 'http://10.0.2.2:5000';
+const baseUrl = Platform.OS === 'android' ? 'http://10.0.2.2:5000' : 'http://127.0.0.1:5000';
 
 const httpHeaders = {
   pragma: 'no-cache',
