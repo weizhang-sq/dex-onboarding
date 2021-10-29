@@ -1,24 +1,22 @@
-import { StyleSheet, View } from 'react-native';
-
 import { HomeScreen } from './HomeScreen';
-import { Provider as PaperProvider } from 'react-native-paper';
+import { Loading } from './EasyLoading';
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <PaperProvider>
-      <View style={styles.container}>
-        <StatusBar style='auto' />
-        <HomeScreen />
-      </View>
-    </PaperProvider>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false
+        }}
+      >
+        <Stack.Screen name='Home' component={HomeScreen} />
+      </Stack.Navigator>
+      <Loading loadingText={'Loading...'} />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff'
-  }
-});

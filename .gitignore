@@ -1,3 +1,4 @@
 
 app/.buckconfig
 app/.gitattributes
+service/yarn-error.log
