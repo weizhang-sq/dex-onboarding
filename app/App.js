@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
-// Ignore the known warnings in socket.io
+// Ignore the known warnings
 LogBox.ignoreLogs([
   'Constants.deviceId has been deprecated in favor of generating and storing your own ID. This API will be removed in SDK 44.'
 ]);

@@ -26,7 +26,8 @@ export function HomeScreen() {
     for (let i = 0; i < 50; i++) {
       list.push({
         name: `Charity-${i + 1}`,
-        amount: (i + 1) * 400
+        amount: (i + 1) * 400,
+        image: `https://picsum.photos/${200 + i}`
       });
     }
     setCharityList(list);
@@ -86,7 +87,7 @@ export function HomeScreen() {
   let keyIndex = 0;
   const items = [];
   (charityList || []).forEach((item) => {
-    const { name, amount } = item;
+    const { name, amount, image } = item;
     const donate = `Donate $${(amount / 100).toFixed(0)}`;
     items.push(
       <View key={keyIndex++} style={{ width: '50%' }}>
@@ -94,7 +95,7 @@ export function HomeScreen() {
           <Card.Title>{name}</Card.Title>
           <Card.Divider />
           <Card.Image
-            source={{ uri: `https://picsum.photos/${200 + keyIndex}` }}
+            source={{ uri: image }}
             style={{ borderTopLeftRadius: 4, borderTopRightRadius: 4, borderBottomWidth: 0, height: 120 }}
           />
           <Button
