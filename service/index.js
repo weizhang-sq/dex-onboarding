@@ -183,17 +183,14 @@ const getCustomer = async (deviceId) => {
   const searchResult = await customersApi.searchCustomers({
     query: {
       filter: {
-        email_address: {
+        emailAddress: {
           exact: email
         }
       }
     }
   });
 
-  // FIXME: searchCustomers returns data even though email doesn't match
-  const customers = searchResult.result.customers;
-  const index = (customers || []).findIndex((customer) => customer.emailAddress === email);
-  return index === -1 ? undefined : customers[index];
+  return searchResult.result.customers[0];
 };
 
 const sendCustomer = (res, customer) => {
